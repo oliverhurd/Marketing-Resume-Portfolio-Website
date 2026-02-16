@@ -79,9 +79,9 @@ export function CaseStudiesPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <CaseStudyCard title="Braveheart Trading" description="Building an online trading education community from zero to profitability — entirely through organic content in one of the internet's most oversaturated markets." tag="Community · Organic Growth" href="/case-studies/braveheart-trading" delay={0} />
-          <CaseStudyCard title="SaaS Content Engine" description="Designing a content-led acquisition strategy for an early-stage B2B SaaS company — from zero blog traffic to 50K monthly organic visits." tag="B2B SaaS · Content Strategy" comingSoon delay={0.1} />
-          <CaseStudyCard title="Creator Brand Launch" description="Helping a creator transition from freelance work to a personal brand with a productized service — positioning, messaging, and launch strategy." tag="Personal Brand · Launch" comingSoon delay={0.2} />
+          <CaseStudyCard title="Braveheart Trading" description="Fostered an online trading education community from zero to profitability — entirely through organic content in one of the internet's most oversaturated markets." tag="Community · Organic Growth" href="/case-studies/braveheart-trading" delay={0} />
+          <CaseStudyCard title="Shopping Done Smart" description="Built a general e-commerce store to drop-ship wholesale products B2C through social media — using the paid traffic alternative of affiliate marketing to generate bi-daily revenue." tag="B2C E-com · Affiliate Marketing" delay={0.1} />
+          <CaseStudyCard title="Tookjai Review" description="Developed AI generated creatives and customer research based and targeted landing pages, for online performanced based affiliate marketing with Facebook media buying, revewing performance data and bi-weekly metrics for paid ads management." tag="Media Buying · FB Ads delay={0.2} />
         </div>
       </main>
     </PageTransition>;
