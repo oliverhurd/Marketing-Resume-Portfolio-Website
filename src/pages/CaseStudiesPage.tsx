@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRightIcon } from 'lucide-react';
 import { PageTransition } from '../components/layout/PageTransition';
+
 function CaseStudyCard({
   title,
   description,
@@ -10,33 +11,32 @@ function CaseStudyCard({
   href,
   comingSoon,
   delay
-
-
-
-
-
-
-
-}: {title: string;description: string;tag: string;href?: string;comingSoon?: boolean;delay: number;}) {
+}: {
+  title: string;
+  description: string;
+  tag: string;
+  href?: string;
+  comingSoon?: boolean;
+  delay: number;
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: '-40px'
   });
-  const content = <motion.article ref={ref} initial={{
-    opacity: 0,
-    y: 24
-  }} animate={isInView ? {
-    opacity: 1,
-    y: 0
-  } : {
-    opacity: 0,
-    y: 24
-  }} transition={{
-    duration: 0.5,
-    delay,
-    ease: [0.22, 1, 0.36, 1]
-  }} className={`border border-surface-border p-8 md:p-10 ${!comingSoon ? 'group hover:border-primary/20 transition-colors duration-300' : ''}`}>
+
+  const content = (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.5,
+        delay,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      className={`border border-surface-border p-8 md:p-10 ${!comingSoon ? 'group hover:border-primary/20 transition-colors duration-300' : ''}`}
+    >
       <p className="text-[11px] font-medium tracking-[0.14em] uppercase text-primary-muted mb-4">
         {tag}
       </p>
@@ -44,45 +44,66 @@ function CaseStudyCard({
         {title}
       </h3>
       <p className="text-primary-light leading-relaxed mb-6">{description}</p>
-      {comingSoon ? <span className="text-[13px] text-primary-muted italic">
+      {comingSoon ? (
+        <span className="text-[13px] text-primary-muted italic">
           Coming Soon
-        </span> : <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:opacity-60 transition-opacity duration-200">
+        </span>
+      ) : (
+        <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:opacity-60 transition-opacity duration-200">
           Read Case Study
           <ArrowRightIcon className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-        </span>}
-    </motion.article>;
+        </span>
+      )}
+    </motion.article>
+  );
+
   if (href && !comingSoon) {
     return <Link to={href}>{content}</Link>;
   }
   return content;
 }
+
 export function CaseStudiesPage() {
-  return <PageTransition>
+  return (
+    <PageTransition>
       <main className="editorial-container pt-16 md:pt-24 pb-20">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h1 className="font-playfair text-4xl md:text-6xl font-bold text-primary mb-4">
             Case Studies
           </h1>
           <p className="text-lg md:text-xl text-primary-light max-w-2xl mb-16 md:mb-20">
-            Deep dives into the strategy, execution, and results behind the
-            work.
+            Deep dives into the strategy, execution, and results behind the work.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <CaseStudyCard title="Braveheart Trading" description="Fostered an online trading education community from zero to profitability — entirely through organic content in one of the internet's most oversaturated markets." tag="Community · Organic Growth" href="/case-studies/braveheart-trading" delay={0} />
-          <CaseStudyCard title="Shopping Done Smart" description="Built a general e-commerce store to drop-ship wholesale products B2C through social media — using the paid traffic alternative of affiliate marketing to generate bi-daily revenue." tag="B2C E-com · Affiliate Marketing" delay={0.1} />
-          <CaseStudyCard title="Tookjai Review" description="Developed AI generated creatives and customer research based and targeted landing pages, for online performanced based affiliate marketing with Facebook media buying, revewing performance data and bi-weekly metrics for paid ads management." tag="Media Buying · FB Ads delay={0.2} />
+          <CaseStudyCard
+            title="Braveheart Trading"
+            description="Fostered an online trading education community from zero to profitability — entirely through organic content in one of the internet's most oversaturated markets."
+            tag="Community · Organic Growth"
+            href="/case-studies/braveheart-trading"
+            delay={0}
+          />
+          <CaseStudyCard
+            title="Shopping Done Smart"
+            description="Built a general e-commerce store to drop-ship wholesale products B2C through social media — using the paid traffic alternative of affiliate marketing to generate bi-daily revenue."
+            tag="B2C E-com · Affiliate Marketing"
+            href="/case-studies/shopping-done-smart"
+            delay={0.1}
+          />
+          <CaseStudyCard
+            title="Tookjai Review"
+            description="Developed AI generated creatives and customer research based targeted landing pages for online performance based affiliate marketing with Facebook media buying, reviewing performance data and bi-weekly metrics for paid ads management."
+            tag="Media Buying · FB Ads"
+            href="/case-studies/tookjai-review"
+            delay={0.2}
+          />
         </div>
       </main>
-    </PageTransition>;
+    </PageTransition>
+  );
 }
