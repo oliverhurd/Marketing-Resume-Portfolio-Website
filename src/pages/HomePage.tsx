@@ -196,7 +196,7 @@ export function HomePage() {
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://bravehearttrading.com"
+                  href="https://wwwbravehearttrading.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-surface text-[13px] font-medium tracking-[0.06em] uppercase hover:bg-primary/85 transition-colors duration-200 group">
