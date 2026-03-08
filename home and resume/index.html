@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title># Oliver Hurd Portfolio Resume Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Oliver Hurd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background-color: #fafafa;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #999;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        nav a.active {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #1a1a1a;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .resume-header {
+            margin-bottom: 60px;
+        }
+
+        .resume-header h1 {
+            font-family: 'Georgia', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .resume-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 10px 16px;
+            border: 1px solid #1a1a1a;
+            border-radius: 6px;
+            background: transparent;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Section Divider */
+        .divider {
+            height: 1px;
+            background-color: #e5e5e5;
+            margin: 60px 0;
+        }
+
+        /* Experience Section */
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .experience-item {
+            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 40px;
+        }
+
+        .experience-date {
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .experience-content h3 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .experience-company {
+            color: #0066ff;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-decoration: none;
+        }
+
+        .experience-company:hover {
+            text-decoration: underline;
+        }
+
+        .experience-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .metrics {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0066ff;
+            font-weight: 500;
+        }
+
+        .experience-bullets {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .experience-bullets li {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .experience-bullets li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #ccc;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-top: 60px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skill-category h4 {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .skill-category a {
+            color: #0066ff;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .skill-category a:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 60px 0;
+            background-color: #fff;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-left h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer-left p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .copyright {
+            grid-column: 1 / -1;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #999;
+            margin-top: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 24px;
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            main {
+                padding: 40px 24px;
+            }
+
+            .resume-header h1 {
+                font-size: 32px;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                padding: 0 24px;
+            }
+
+            .footer-right {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Oliver Hurd</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#resume" class="active">Resume</a>
+                <a href="#case-studies">Case Studies</a>
+                <a href="#blog">Blog</a>
+                <a href="#notes">Notes</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Resume Header -->
+        <div class="resume-header">
+            <h1>Resume</h1>
+            <p>Content strategist and growth operator with 5+ years building brands from zero to sustainable revenue.</p>
+            <button class="download-btn">
+                <span>↓</span> Download PDF
+            </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Experience Section -->
+        <section>
+            <div class="section-label">Experience</div>
+
+            <!-- Experience Item 1 -->
+            <div class="experience-item">
+                <div class="experience-date">2022 — 2024</div>
+                <div class="experience-content">
+                    <h3>Founder & Lead Strategist</h3>
+                    <a href="#" class="experience-company">Braveheart Trading</a>
+                    <p class="experience-description">
+                        Built a trading education brand to $100k+ revenue through organic content and community — zero paid advertising.
+                    </p>
+                    <div class="metrics">
+                        <span class="metric">$100k+ Revenue</span>
+                        <span class="metric">17k+ YouTube</span>
+                        <span class="metric">33k+ Twitter</span>
+                        <span class="metric">39.6% Open Rate</span>
+                    </div>
+                    <ul class="experience-bullets">
+                        <li>Designed and executed cross-platform content strategy across YouTube, Twitter, and Newsletter.</li>
+                        <li>Built a high-ticket conversion funnel driven entirely by trust and organic inbound.</li>
+                        <li>Managed community engagement and student success programs.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience Item 2 -->
+            <div class="experience-item">
+                <div class="experience-date">2021 — 2022</div>
+                <div class="experience-content">
+                    <h3>Content Strategy Consultant</h3>
+                    <a href="#" class="experience-company">Freelance</a>
+                    <p class="experience-description">
+                        Advised early-stage brands on content positioning, audience development, and organic growth strategy.
+                    </p>
+                    <ul class="experience-bullets">
+                        <li>Developed foundational brand messaging and content playbooks for 5+ startups.</li>
+                        <li>Audited existing content ecosystems and implemented high-ROI organic channels.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience Item 3 -->
+            <div class="experience-item">
+                <div class="experience-date">2019 — 2021</div>
+                <div class="experience-content">
+                    <h3>Brand Strategist</h3>
+                    <a href="#" class="experience-company">Meridian Creative Agency</a>
+                    <p class="experience-description">
+                        Led brand strategy for B2B and D2C clients, developing positioning frameworks and content ecosystems.
+                    </p>
+                    <ul class="experience-bullets">
+                        <li>Facilitated brand discovery workshops with executive teams.</li>
+                        <li>Created comprehensive brand guidelines and go-to-market content strategies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience Item 4 -->
+            <div class="experience-item">
+                <div class="experience-date">2017 — 2019</div>
+                <div class="experience-content">
+                    <h3>Content Marketing Manager</h3>
+                    <a href="#" class="experience-company">Elevate Digital</a>
+                    <p class="experience-description">
+                        Managed content operations for a portfolio of SaaS and e-commerce clients.
+                    </p>
+                    <ul class="experience-bullets">
+                        <li>Oversaw editorial calendars and managed a team of freelance writers.</li>
+                        <li>Optimized long-form content for SEO, driving 40% YoY organic traffic growth across accounts.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <div class="section-label">Skills & Expertise</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Strategy & Growth</h4>
+                    <ul>
+                        <li>Content Strategy</li>
+                        <li>Organic Growth</li>
+                        <li>Brand Positioning</li>
+                        <li>Conversion Funnels</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Channels & Distribution</h4>
+                    <ul>
+                        <li>YouTube Strategy</li>
+                        <li>Twitter/X Growth</li>
+                        <li>Email Marketing</li>
+                        <li>Newsletter Systems</li>
+                        <li>SEO</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Creation & Community</h4>
+                    <ul>
+                        <li>Copywriting</li>
+                        <li>Community Building</li>
+                        <li>Audience Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Oliver Hurd</h3>
+                <p>Content strategist and growth operator. Designing organic systems that turn attention into trust and trust into revenue.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#blog">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#resume">Resume</a>
+                    <a href="#notes">Notes</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#case-studies">Case Studies</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 Oliver Hurd. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```
+
+This resume page includes:
+
+✓ **Clean minimal design** with lots of whitespace
+✓ **Sticky header** with active navigation indicator
+✓ **Large serif headings** (Georgia) with modern sans-serif body
+✓ **Two-column experience layout** with dates on left
+✓ **Metrics badges** for key achievements
+✓ **Skills grid** organized by category
+✓ **Subtle dividers** between sections
+✓ **Professional footer** with navigation links
+✓ **Responsive design** for mobile devices
+✓ **Calm neutral color palette** (#fafafa background, #1a1a1a text)
+✓ **All content** from the provided images</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
